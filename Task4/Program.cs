@@ -9,16 +9,18 @@ Console.WriteLine("Введите первое число:");
 int a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите второе число:");
 int b = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите третье число:");
+int c = Convert.ToInt32(Console.ReadLine());
 
-if (a > b)
+int max = a;
+
+if (b > max)
 {
-    Console.WriteLine($"Число {a} больше, чем число {b}");   
+    max = b;   
 }
-else if (a < b)
+if (c > max)
 {
-    Console.WriteLine($"Число {b} больше, чем число {a}");
+    max = c;
 }
-else
-{
-    Console.WriteLine($"Числа {a} и {b} равны.");
-}
+
+Console.WriteLine($"Число {max} самое большое.");
