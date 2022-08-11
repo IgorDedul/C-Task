@@ -4,20 +4,27 @@
 // 8 -> 2, 4, 6, 8
 
 Console.WriteLine("Добрый день! Данная программа покачывает все чётные числа до заданного числа.");
-Console.WriteLine("Введите число:");
+Console.WriteLine("Введите положительное число:");
 int n = Convert.ToInt32(Console.ReadLine());
 int i = 0;
 Console.WriteLine("Чётные числа:");
 
-do 
+if (n > 0)
 {
-    i++;
-    int remain = i % 2;
-
-    if (remain == 0)
+    do 
     {
-        Console.Write($" {i},");   
+        i++;
+        int remain = i % 2;
+
+        if (remain == 0)
+        {
+            Console.Write($" {i},");   
+        }
     }
+    while (i < n);
+    Console.WriteLine("");
 }
-while (i < n);
-Console.WriteLine("");
+else 
+{
+   Console.WriteLine("Неправильный ввод"); 
+}    
