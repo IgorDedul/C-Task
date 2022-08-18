@@ -11,14 +11,20 @@ int num = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите степень:");
 int deg = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("");
-int result = 1;
+
+int ResNumber(int number)
+{
+    int result = 1;
+    for (int i=1; i<=deg; i++)
+    {
+        result = result * number;
+    }
+    return result;
+}
 
 if (deg > 0)
 {
-    for (int i=1; i<=deg; i++)
-    {
-    result = result * num;
-    }
-Console.WriteLine($"Число {num} в степени {deg} составляет: {result}");
+    int result = ResNumber(num);    
+    Console.WriteLine($"Число {num} в степени {deg} составляет: {result}");
 }
 else Console.WriteLine("Введено некорректное число!");
