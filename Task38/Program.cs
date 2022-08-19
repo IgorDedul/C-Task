@@ -5,28 +5,43 @@
 
 Console.WriteLine("Добрый день! Данная программа генерирует массив вещественных чисел и считает разницу между максимальным и минимальными элементами");
 Console.WriteLine("");
-int diff = 0;
+Console.WriteLine("Сколько элементов в массиве должно быть?");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Сколько знаков после запятой должно быть в вещественных числах элементов массива?");
+int sign = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("");
 
-int[] NewArray()
+void CorrectInput()
 {
-    int[] array = new int [8];
-    for (int i=0; i<8; i++)
+    if (size <= 0 || sign <= 0)
     {
-        array[i] = new Random().Next(-100,100);
+        Console.WriteLine("Вы ввели некорректную длину массива.");
+    }
+}
+
+CorrectInput();
+
+double[] NewArray()
+{
+    double[] array = new double [size];
+    for (int i=0; i<size; i++)
+    {
+        array[i] = new Random().NextDouble()*100;
+        array[i] = Math.Round(array[i], sign);
     }
     return array;
 }
 
-int[] array = NewArray();
+double[] array = NewArray();
 
 void ArrayPrint()
 {
     int i=0;
     Console.Write("[");
 
-    for (i=0; i<7; i++)
+    for (i=0; i<size-1; i++)
     {
-        Console.Write($" {array[i]}, ");
+        Console.Write($" {array[i]}; ");
     }
     Console.Write($" {array[i]}]");
 }
@@ -34,11 +49,11 @@ void ArrayPrint()
 ArrayPrint();
 Console.WriteLine("");
 
-int DiffMinMax()
+void DiffMinMax()
 {
-    int min = array[0];
-    int max = array[0];
-    for (int i=1; i<8; i++)
+    double min = array[0];
+    double max = array[0];
+    for (int i=1; i<size; i++)
     {
         if (array[i] < min)
         {
@@ -49,9 +64,9 @@ int DiffMinMax()
             max = array[i];
         }
     }
-    diff = max - min;
-    return diff;
+    double diff = max - min;
+    diff = Math.Round(diff, sign);
+    Console.WriteLine($"Разница между максимальным {max} и минимальным {min} элементом массива составляет {diff}");
 }
 
-diff = DiffMinMax();
-Console.WriteLine($"Разница между максимальным и минимальным элементом массива составляет {diff}");
+DiffMinMax();

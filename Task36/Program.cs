@@ -7,12 +7,25 @@
 
 Console.WriteLine("Добрый день! Данная программа генерирует массив и считает сумму элементов стоящих на нечётных индексах");
 Console.WriteLine("");
+Console.WriteLine("Сколько элементов в массиве должно быть?");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("");
 int sum = 0;
+
+void CorrectInput()
+{
+    if (size <= 0)
+    {
+        Console.WriteLine("Вы ввели некорректную длину массива.");
+    }
+}
+
+CorrectInput();
 
 int[] NewArray()
 {
-    int[] array = new int [4];
-    for (int i=0; i<4; i++)
+    int[] array = new int [size];
+    for (int i=0; i<size; i++)
     {
         array[i] = new Random().Next(-100,100);
     }
@@ -26,7 +39,7 @@ void ArrayPrint()
     int i=0;
     Console.Write("[");
 
-    for (i=0; i<3; i++)
+    for (i=0; i<size-1; i++)
     {
         Console.Write($" {array[i]}, ");
     }
@@ -38,7 +51,7 @@ Console.WriteLine("");
 
 int SumNoEvenArray()
 {
-    for (int i=0; i<4; i++)
+    for (int i=0; i<size; i++)
     {
         if (i%2 != 0)
         {
