@@ -17,14 +17,19 @@ double k2 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("");
 
 
-double IntersectionLine()
+double IntersectionLineX()
 {
     double x = (b2 - b1) / (k1 - k2);
-    double y = k1 * x + b1;
     return x;
+}
+
+double x = IntersectionLineX();
+
+double IntersectionLineY()
+{
+    double y = k1 * x + b1;
     return y;
 }
 
-double x = IntersectionLine();
-double y = IntersectionLine();
+double y = IntersectionLineY();
 Console.WriteLine($"Координаты точки пнресечения: ({x};{y}).");
