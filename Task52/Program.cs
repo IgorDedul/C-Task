@@ -28,11 +28,12 @@ CorrectInput();
 int[,] NewMatrix()
 {
     int[,] matrix = new int [row,col];
+    Random rnd = new Random();
     for (int i=0; i<row; i++)
     {
         for (int j=0; j<col; j++)
         {
-        matrix[i,j] = new Random().Next(0,100);
+        matrix[i,j] = rnd.Next(0,100);
         }
     }
     return matrix;

@@ -30,11 +30,12 @@ CorrectInput();
 double[,] NewMatrix()
 {
     double[,] matrix = new double [row,col];
+    Random rnd = new Random();
     for (int i=0; i<row; i++)
     {
         for (int j=0; j<col; j++)
         {
-        matrix[i,j] = new Random().NextDouble()*200-100;
+        matrix[i,j] = rnd.NextDouble()*200-100;
         matrix[i,j] = Math.Round(matrix[i,j], 1);
         }
     }
