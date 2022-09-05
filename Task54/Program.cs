@@ -58,7 +58,7 @@ void MatrixPrint(int[,] matrix)
 }
 MatrixPrint(newMatrix);
 
-int[,] СorretMatrix(int[,] matrix)
+int[,] СorrectMatrix(int[,] matrix)
 {
     int temp = default;
     for (int i=0; i<row; i++)
@@ -79,7 +79,7 @@ int[,] СorretMatrix(int[,] matrix)
     return matrix;
 }
 
-int[,] correctMatrix = СorretMatrix(newMatrix);
+int[,] correctMatrix = СorrectMatrix(newMatrix);
 Console.WriteLine("");
 Console.WriteLine("Упорядоченная матрица по убыванию элементов:");
 MatrixPrint(correctMatrix);
